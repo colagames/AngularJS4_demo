@@ -11,8 +11,6 @@ export class AppComponent {
 
   validateKeyword(p_evt: KeyboardEvent) {
     console.log(p_evt);
-    if (p_evt.keyCode === 27) {
       this.keyword = '';
-    }
   }
 }
