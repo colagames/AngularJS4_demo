@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
-import { FormsModule } from '@angular/forms'; // 註冊Forms 才可以使用 [(ngModule)]
+import { FormsModule } from '@angular/forms';
+import { ArticleComponent } from './article/article.component'; // 註冊Forms 才可以使用 [(ngModule)]
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
