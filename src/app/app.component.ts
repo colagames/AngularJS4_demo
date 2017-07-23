@@ -14,8 +14,8 @@ export class AppComponent {
     this.keyword = '';
   }
 
-  doSearch(target) {
-    console.log(target);
-    this.keyword = target.value;
+  doSearch(value: string) {
+    console.log(value);
+    this.keyword = value;
   }
 }
