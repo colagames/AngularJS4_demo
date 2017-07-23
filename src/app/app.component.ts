@@ -19,4 +19,7 @@ export class AppComponent {
     console.log(value);
     this.keyword = value;
   }
+  doSearch(value: string) {
+    console.log('按下搜尋後 value=' + value);
+  }
 }

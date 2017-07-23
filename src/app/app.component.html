@@ -78,8 +78,8 @@
             <div id="searchbox">
               <!--<input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" [(ngModel)]="keyword">-->
               <!--<input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" [(ngModel)]="keyword" (keyup.escape)=validateKeyword($event)>-->
-              <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" [value]="keyword" (keyup.enter)=doEnter($event.target.value) (keyup.escape)=validateKeyword($event)>
-              <input type="button" value="搜尋" id="searchbutton"> {{keyword}}
+              <input #tKeyword type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" [value]="keyword" (keyup.enter)="doEnter($event.target.value)" (keyup.escape)="validateKeyword($event)">
+              <input type="button" value="搜尋" id="searchbutton" (click)="doSearch(tKeyword.value)"> {{keyword}}
             </div>
           </div>
         </div>
