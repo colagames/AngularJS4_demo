@@ -15,4 +15,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeTitle(p_evt) {
+    console.log(p_evt);
+    if (p_evt.ctrlKey) {
+      this.siteName = '有加Ctrl然後點滑鼠';
+      return false;
+    }
+     this.siteName = '你只是普通點滑鼠';
+  }
 }
