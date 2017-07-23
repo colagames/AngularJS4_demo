@@ -12,9 +12,10 @@ export class AppComponent {
   validateKeyword(p_evt: KeyboardEvent) {
     console.log(p_evt);
     this.keyword = '';
+    (p_evt.target as HTMLInputElement).value = '';
   }
 
-  doSearch(value: string) {
+  doEnter(value: string) {
     console.log(value);
     this.keyword = value;
   }
