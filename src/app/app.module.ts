@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { ArticleComponent } from './article/article.component';
 import { MaskPipe } from './mask.pipe'; // 註冊Forms 才可以使用 [(ngModule)]
+import { DataService } from './data.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { MaskPipe } from './mask.pipe'; // 註冊Forms 才可以使用 [(ngModul
     FormsModule, // import上面的 FormsModule
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
