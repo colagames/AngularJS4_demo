@@ -57,7 +57,8 @@
           <section class="post-body text">
             <p>在 ASP.NET MVC 的 <strong>模型繫結</strong> (Model Binding) 完成之後，我們可以在 Controller / Action 中取得 <span style="font-family: Consolas;">ModelState</span>              物件，一般來說我們都會用 <span style="font-family: Consolas;"><strong>ModelState.IsValid</strong></span> 來檢查在「模型繫結」的過程中所做的
               <strong>輸入驗證</strong> (Input Validation) 與 <strong>模型驗證</strong> (Model Validation) 是否成功。不過，這個 <span style="font-family: Consolas;">ModelState</span>              物件的用途很廣，裡面存有非常多模型繫結過程的狀態資訊，不但在 Controller 中能用，在 View 裡面也能使用，用的好的話，可以讓你的 Controller 更輕、View 也更乾淨，本篇文章將分享幾個 ModelState
-              的使用技巧。</p>
+              的使用技巧。
+            </p>
             <p>... <a class="more" href="http://blog.miniasp.com/post/2016/03/14/ASPNET-MVC-Developer-Note-Part-28-Understanding-ModelState.aspx#continue">繼續閱讀</a>              ...</p>
           </section>
         </article>
@@ -75,10 +76,9 @@
         <div class="widget search">
           <div class="widget-content">
             <div id="searchbox">
-              <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" [(ngModel)]="keyword">
-
-              <input type="button" value="搜尋" id="searchbutton">
-              {{keyword}}
+              <!--<input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" [(ngModel)]="keyword">-->
+              <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" [(ngModel)]="keyword" (keyup)=validateKeyword($event)>
+              <input type="button" value="搜尋" id="searchbutton"> {{keyword}}
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@
           <div class="widget-content">
             <div style="text-align: center">
               <div id="calendarContainer">
-                <table class="calendar" summary="" style=";border-collapse:collapse;">
+                <table class="calendar" summary="" style="border-collapse:collapse;">
                   <tbody>
                     <tr>
                       <td><a href="#">&lt;&lt;</a>&nbsp;&nbsp;</td>
@@ -187,23 +187,19 @@
             <ul id="categorylist">
               <li>
                 <a href="http://blog.miniasp.com/category/feed/Net.aspx" rel="nofollow"><img src="/assets/images/rssButton.png" alt="RSS feed for .Net" class="rssButton"></a>
-                <a
-                  href="http://blog.miniasp.com/category/Net.aspx" title="分類: .Net">.Net (199)</a>
+                <a href="http://blog.miniasp.com/category/Net.aspx" title="分類: .Net">.Net (199)</a>
               </li>
               <li>
                 <a href="http://blog.miniasp.com/category/feed/Accessibility.aspx" rel="nofollow"><img src="/assets/images/rssButton.png" alt="RSS feed for Accessibility" class="rssButton"></a>
-                <a
-                  href="http://blog.miniasp.com/category/Accessibility.aspx" title="分類: Accessibility">Accessibility (3)</a>
+                <a href="http://blog.miniasp.com/category/Accessibility.aspx" title="分類: Accessibility">Accessibility (3)</a>
               </li>
               <li>
                 <a href="http://blog.miniasp.com/category/feed/AngularJS.aspx" rel="nofollow"><img src="/assets/images/rssButton.png" alt="RSS feed for AngularJS" class="rssButton"></a>
-                <a
-                  href="http://blog.miniasp.com/category/AngularJS.aspx" title="分類: AngularJS">AngularJS (7)</a>
+                <a href="http://blog.miniasp.com/category/AngularJS.aspx" title="分類: AngularJS">AngularJS (7)</a>
               </li>
               <li>
                 <a href="http://blog.miniasp.com/category/feed/ASPNET.aspx" rel="nofollow"><img src="/assets/images/rssButton.png" alt="RSS feed for ASP.NET" class="rssButton"></a>
-                <a
-                  href="http://blog.miniasp.com/category/ASPNET.aspx" title="分類: ASP.NET">ASP.NET (217)</a>
+                <a href="http://blog.miniasp.com/category/ASPNET.aspx" title="分類: ASP.NET">ASP.NET (217)</a>
               </li>
             </ul>
 
@@ -299,13 +295,12 @@
                 </li>
                 <li>
                   <a href="http://blog.darkthread.net/blogs/darkthreadtw/rss.aspx"><img src="/assets/images/rssButton.png" alt="RSS feed for 黑暗執行緒" width="12" height="12"></a>
-                  <a
-                    href="http://blog.darkthread.net/">黑暗執行緒</a>
-                    <ul>
-                      <li><a href="http://blog.darkthread.net/post-2016-05-02-2016-shiding-marathron.aspx" title="2016石碇馬">2016石碇馬</a></li>
-                      <li><a href="http://blog.darkthread.net/post-2016-04-30-nuget-package-web-config-install.aspx" title="安裝NuGet Package時在web.config加入設定">安裝NuGet Package時在web.co...</a></li>
-                      <li><a href="http://blog.darkthread.net/post-2016-04-28-nuget-packager.aspx" title="從Visual Studio發佈NuGet Package的好幫手－NuGet Packager">從Visual Studio發佈NuGet P...</a></li>
-                    </ul>
+                  <a href="http://blog.darkthread.net/">黑暗執行緒</a>
+                  <ul>
+                    <li><a href="http://blog.darkthread.net/post-2016-05-02-2016-shiding-marathron.aspx" title="2016石碇馬">2016石碇馬</a></li>
+                    <li><a href="http://blog.darkthread.net/post-2016-04-30-nuget-package-web-config-install.aspx" title="安裝NuGet Package時在web.config加入設定">安裝NuGet Package時在web.co...</a></li>
+                    <li><a href="http://blog.darkthread.net/post-2016-04-28-nuget-packager.aspx" title="從Visual Studio發佈NuGet Package的好幫手－NuGet Packager">從Visual Studio發佈NuGet P...</a></li>
+                  </ul>
                 </li>
               </ul>
             </div>
